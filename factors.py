@@ -2,7 +2,12 @@
 
 import sys
 import time
+import os
 
+if "LD_LIBRARY_PATH" not in os.environ:
+  os.environ["LD_LIBRARY_PATH"] = os.environ["PWD"]
+else:
+  os.environ["LD_LIBRARY_PATH"] += ":."
 
 def factorize(n):
     """
